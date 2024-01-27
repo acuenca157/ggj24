@@ -11,6 +11,8 @@ public class PlayerFightController : MonoBehaviour
     private PlayerFightController otherPlayer;
     private List<string> positions = new List<string> {"U","M","D"};
     private List<int> danios = new List<int> {10,10,10};
+    [SerializeField]
+    private GameObject[] attackArms, defendArms;
     private string actualPosition = "M";
     private bool isInDefense = true;
 
@@ -18,6 +20,25 @@ public class PlayerFightController : MonoBehaviour
     void Start()
     {
         actualLife = totalLife;
+        resetArms();
+        actualPosition = "M";
+        defendArms[1].SetActive(true);
+    }
+
+    private void resetArms() {
+        foreach (GameObject arm in attackArms)
+        {
+            arm.SetActive(false);
+        }
+        foreach (GameObject arm in defendArms)
+        {
+            arm.SetActive(false);
+        }
+        defendArms[getActualPositionIndex()].SetActive(true);
+    }
+
+    private int getActualPositionIndex() {
+        return positions.FindIndex(pos => pos == actualPosition);
     }
 
     public void reciveAttack (string attackPosition) {
@@ -31,6 +52,7 @@ public class PlayerFightController : MonoBehaviour
             } else {
                 actualLife -= damage;
             }
+
             Debug.Log("He recibido en " + attackPosition + " y me he hecho pupa en " + damage + " puntos. Me queda " + actualLife + " de vida");
         }
         else {
@@ -51,6 +73,7 @@ public class PlayerFightController : MonoBehaviour
                 int actualPosIndex = positions.FindIndex(pos => pos == actualPosition);
                 actualPosition = positions[actualPosIndex - 1];
                 isInDefense = true;
+                resetArms();
             }
         }
         else {
@@ -59,6 +82,7 @@ public class PlayerFightController : MonoBehaviour
                 int actualPosIndex = positions.FindIndex(pos => pos == actualPosition);
                 actualPosition = positions[actualPosIndex + 1];
                 isInDefense = true;
+                resetArms();
             }
         }
 
@@ -68,8 +92,11 @@ public class PlayerFightController : MonoBehaviour
 
     private IEnumerator attackCourrutine() {
         isInDefense = false;
-        yield return new WaitForSeconds(1.3f);
+        defendArms[getActualPositionIndex()].SetActive(false);
+        attackArms[getActualPositionIndex()].SetActive(true);
+        yield return new WaitForSeconds(0.8f);
         isInDefense = true;
+        resetArms();
         yield return new WaitForEndOfFrame();
     }
 
