@@ -4,17 +4,34 @@ using UnityEngine;
 
 public class PlayerFightController : MonoBehaviour
 {
+    public int totalLife = 50;
+    private int actualLife = 50;
+
     [SerializeField]
     private PlayerFightController otherPlayer;
     private List<string> positions = new List<string> {"U","M","D"};
+    private List<int> danios = new List<int> {10,10,10};
     private string actualPosition = "M";
     private bool isInDefense = true;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        actualLife = totalLife;
+    }
+
     public void reciveAttack (string attackPosition) {
+        int posIndex = positions.FindIndex(pos => pos == attackPosition);
+        int damage = danios[posIndex];
         if ( (attackPosition != actualPosition) || (attackPosition == actualPosition && !isInDefense))
         {
-            Debug.Log("He recibido en " + attackPosition + " y me he hecho pupa");
-            // PUPA
+            if (actualLife <= damage) {
+                actualLife = 0;
+                die();
+            } else {
+                actualLife -= damage;
+            }
+            Debug.Log("He recibido en " + attackPosition + " y me he hecho pupa en " + damage + " puntos. Me queda " + actualLife + " de vida");
         }
         else {
             Debug.Log("He recibido en " + attackPosition + " y me he come la polla porque me he defendido");
@@ -56,15 +73,7 @@ public class PlayerFightController : MonoBehaviour
         yield return new WaitForEndOfFrame();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void die() {
+        Debug.Log("He muerto");
     }
 }
