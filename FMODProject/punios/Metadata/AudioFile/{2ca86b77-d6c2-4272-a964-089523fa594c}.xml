@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{2ca86b77-d6c2-4272-a964-089523fa594c}">
+		<property name="assetPath">
+			<value>mecmec.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>22.0499992</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.0710204081632653</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{11a1b8c8-25ba-4bb4-9364-46ee30bb7cf7}</destination>
+		</relationship>
+	</object>
+</objects>

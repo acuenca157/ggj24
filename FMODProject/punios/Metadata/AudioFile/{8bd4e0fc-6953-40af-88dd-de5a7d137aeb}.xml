@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8bd4e0fc-6953-40af-88dd-de5a7d137aeb}">
+		<property name="assetPath">
+			<value>cancion.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>22.0499992</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>20.297142857142855</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{11a1b8c8-25ba-4bb4-9364-46ee30bb7cf7}</destination>
+		</relationship>
+	</object>
+</objects>

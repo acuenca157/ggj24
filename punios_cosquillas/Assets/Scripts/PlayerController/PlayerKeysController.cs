@@ -39,7 +39,7 @@ public class PlayerKeysController : MonoBehaviour
             {
                 playerFightController.changePosition(false);
             }
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 playerFightController.attack();
             }

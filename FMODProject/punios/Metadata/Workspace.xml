@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="Workspace" id="{f7a2335d-34b3-4587-bfc7-66d26891805f}">
+		<property name="builtBanksOutputDirectory">
+			<value>../../../../../Documents/GitHub/ggj24/punios_cosquillas/Assets/FMOD</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{9f07df3b-0fb8-4771-a25a-67276cac9db2}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{7fc88c49-9222-472d-bd2f-26d2d4351bc4}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{30cb0ee0-a532-44db-bd19-08163fb8a55d}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{b825682e-78da-44f1-9aaa-73588194bdaf}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{cb8c98e7-7ae2-491a-8bf2-14f3b2646de2}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{8cfee209-de73-4e49-a2b0-895fc1662ede}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{11a1b8c8-25ba-4bb4-9364-46ee30bb7cf7}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{8ae11bcc-a528-4115-aa74-b387c327d613}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{7ddac7a9-fdb4-43f5-b499-e3b044a09a17}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{173f02c4-3a09-4606-aa52-b730fbeec0ec}</destination>
+		</relationship>
+	</object>
+</objects>

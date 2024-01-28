@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using FMODUnity;
 
 public class PlayerFightController : MonoBehaviour
 {
@@ -12,9 +14,16 @@ public class PlayerFightController : MonoBehaviour
     private List<string> positions = new List<string> {"U","M","D"};
     private List<int> danios = new List<int> {10,10,10};
     [SerializeField]
-    private GameObject[] attackArms, defendArms;
+    private GameObject[] attackArms, defendArms, particlePositions;
+    [SerializeField]
+    private GameObject particleAttack;
     private string actualPosition = "M";
     private bool isInDefense = true;
+    [SerializeField]
+    private Slider vida;
+
+    [SerializeField]
+    private EventReference eventoDano, eventoDefensa, eventoMover;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +32,7 @@ public class PlayerFightController : MonoBehaviour
         resetArms();
         actualPosition = "M";
         defendArms[1].SetActive(true);
+        vida.value = 100 - actualLife;
     }
 
     private void resetArms() {
@@ -52,12 +62,16 @@ public class PlayerFightController : MonoBehaviour
             } else {
                 actualLife -= damage;
             }
+            Instantiate(particleAttack, particlePositions[getActualPositionIndex()].transform.position, Quaternion.identity);
 
+                FMODUnity.RuntimeManager.PlayOneShot(eventoDano);
             Debug.Log("He recibido en " + attackPosition + " y me he hecho pupa en " + damage + " puntos. Me queda " + actualLife + " de vida");
         }
         else {
+                FMODUnity.RuntimeManager.PlayOneShot(eventoDefensa);
             Debug.Log("He recibido en " + attackPosition + " y me he come la polla porque me he defendido");
         }
+        vida.value = 100 - actualLife;
     }
 
     public void attack() {
@@ -78,6 +92,7 @@ public class PlayerFightController : MonoBehaviour
                     actualPosition = positions[actualPosIndex - 1];
                     isInDefense = true;
                     resetArms();
+                    FMODUnity.RuntimeManager.PlayOneShot(eventoMover);
                 }
             }
             else
@@ -88,6 +103,7 @@ public class PlayerFightController : MonoBehaviour
                     actualPosition = positions[actualPosIndex + 1];
                     isInDefense = true;
                     resetArms();
+                    FMODUnity.RuntimeManager.PlayOneShot(eventoMover);
                 }
             }
             Debug.Log("He cambiado a " + actualPosition);

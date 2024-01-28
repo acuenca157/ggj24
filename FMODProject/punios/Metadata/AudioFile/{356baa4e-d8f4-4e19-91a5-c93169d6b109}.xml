@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{356baa4e-d8f4-4e19-91a5-c93169d6b109}">
+		<property name="assetPath">
+			<value>sisi2.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>22.0499992</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.0448979591836736</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{11a1b8c8-25ba-4bb4-9364-46ee30bb7cf7}</destination>
+		</relationship>
+	</object>
+</objects>
