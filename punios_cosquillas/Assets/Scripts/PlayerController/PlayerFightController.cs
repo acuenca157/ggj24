@@ -61,40 +61,45 @@ public class PlayerFightController : MonoBehaviour
     }
 
     public void attack() {
-        otherPlayer.reciveAttack(actualPosition);
-        StartCoroutine(attackCourrutine());
+        if (isInDefense) {
+            otherPlayer.reciveAttack(actualPosition);
+            StartCoroutine(attackCourrutine());
+        }
+        
     }
 
     public void changePosition(bool changeUp) {
-        if (changeUp)
-        {
-            if (actualPosition != "U")
+        if (isInDefense) {
+            if (changeUp)
             {
-                int actualPosIndex = positions.FindIndex(pos => pos == actualPosition);
-                actualPosition = positions[actualPosIndex - 1];
-                isInDefense = true;
-                resetArms();
+                if (actualPosition != "U")
+                {
+                    int actualPosIndex = positions.FindIndex(pos => pos == actualPosition);
+                    actualPosition = positions[actualPosIndex - 1];
+                    isInDefense = true;
+                    resetArms();
+                }
             }
-        }
-        else {
-            if (actualPosition != "D")
+            else
             {
-                int actualPosIndex = positions.FindIndex(pos => pos == actualPosition);
-                actualPosition = positions[actualPosIndex + 1];
-                isInDefense = true;
-                resetArms();
+                if (actualPosition != "D")
+                {
+                    int actualPosIndex = positions.FindIndex(pos => pos == actualPosition);
+                    actualPosition = positions[actualPosIndex + 1];
+                    isInDefense = true;
+                    resetArms();
+                }
             }
+            Debug.Log("He cambiado a " + actualPosition);
         }
-
-
-        Debug.Log("He cambiado a " + actualPosition);
+        
     }
 
     private IEnumerator attackCourrutine() {
         isInDefense = false;
         defendArms[getActualPositionIndex()].SetActive(false);
         attackArms[getActualPositionIndex()].SetActive(true);
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1.0f);
         isInDefense = true;
         resetArms();
         yield return new WaitForEndOfFrame();
