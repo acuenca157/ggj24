@@ -412,6 +412,7 @@ MonoBehaviour:
   - {fileID: 429546504}
   particleAttack: {fileID: 5112403345868107898, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
   vida: {fileID: 459520831}
+  sceneName: ganaRosa
   eventoDano:
     Guid:
       Data1: 925171889
@@ -2850,6 +2851,7 @@ MonoBehaviour:
   - {fileID: 429546504}
   particleAttack: {fileID: 5112403345868107898, guid: 47b195b2c2cb7a54396cd7866d0cac4a, type: 3}
   vida: {fileID: 1474920184}
+  sceneName: ganaAzul
   eventoDano:
     Guid:
       Data1: 277592797

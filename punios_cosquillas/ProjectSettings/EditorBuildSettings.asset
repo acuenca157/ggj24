@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/SlimUI/Modern Menu 1/Scenes/Demos/Demo1.unity
+    guid: 829a86ba161cdd840842063447f41aab
+  - enabled: 1
+    path: Assets/Scenes/Game01.unity
+    guid: 2d62439eabb6f5e4b8ebce8be827c5eb
+  - enabled: 1
+    path: Assets/Scenes/GanaRosa.unity
+    guid: 2de645138e100354da808cff8ab9bd4a
+  - enabled: 1
+    path: Assets/Scenes/GanaAzul.unity
+    guid: 90611c94a45068e40981b67470e3e127
   m_configObjects: {}

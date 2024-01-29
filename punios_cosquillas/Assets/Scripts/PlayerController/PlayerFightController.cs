@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using FMODUnity;
+using UnityEngine.SceneManagement;
 
 public class PlayerFightController : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PlayerFightController : MonoBehaviour
     private bool isInDefense = true;
     [SerializeField]
     private Slider vida;
+    [SerializeField]
+    private string sceneName;
 
     [SerializeField]
     private EventReference eventoDano, eventoDefensa, eventoMover;
@@ -122,6 +125,7 @@ public class PlayerFightController : MonoBehaviour
     }
 
     private void die() {
+        SceneManager.LoadScene(sceneName);
         Debug.Log("He muerto");
     }
 }
